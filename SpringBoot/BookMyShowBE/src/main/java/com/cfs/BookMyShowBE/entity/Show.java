@@ -35,6 +35,11 @@ public class Show {
     @Version
     private long version;
 
+    public Show()
+    {
+
+    }
+
     public Show(Movie movie, Theatre theatre, LocalDateTime startsAt, LocalDateTime endsAt,BigDecimal ticketPrice ,int totalSeats) {
         this.movie = movie;
         this.theatre = theatre;

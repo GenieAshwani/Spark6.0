@@ -139,4 +139,8 @@ public class Booking {
     public void setSeatLabels(List<String> seatLabels) {
         this.seatLabels = seatLabels;
     }
+
+    public void cancel() {
+        status=BookingStatus.CANCELLED;
+    }
 }

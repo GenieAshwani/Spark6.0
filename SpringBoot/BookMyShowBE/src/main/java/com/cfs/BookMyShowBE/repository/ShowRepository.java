@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface ShowRepository extends JpaRepository<Show,Long> {
 
-    boolean existsByMovieIdAndTheatreIdAndStartAt(Long movieId, Long theatreId, LocalDateTime startAt);
+    boolean existsByMovieIdAndTheatreIdAndStartsAt(Long movieId, Long theatreId, LocalDateTime startsAt);
 
     @Query("select s from Show s join fetch s.movie m join fetch s.theatre t "+
-          "where s.active = true and m.active = true and t.city = :city"+
-         "and s.startAt >= :from and s.startAt < :to order by s.startAt")
+          "where s.active = true and m.active = true and t.city = :city "+
+         "and s.startsAt >= :from and s.startsAt < :to order by s.startsAt")
     List<Show> findActiveShows(String city,LocalDateTime from,LocalDateTime to);
 }
